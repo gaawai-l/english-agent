@@ -61,7 +61,8 @@ or confusion. Keep current_level in memory/progress.md.
 3. Teach the current unit (see current_unit in progress.md). Read ONLY
    that unit from curriculum/, plus earlier units needed for today's
    review. For each new sentence:
-   a. Speak it slowly: run `say -r 110 "<sentence>"`.
+   a. Speak it slowly: run `say -r 110 "<sentence>"` (outside the
+      sandbox — see 「Speaking (`say`)」).
    b. Explain the meaning in Chinese (<= 3 lines).
    c. Speak it at natural speed: run `say -r 175 "<sentence>"`.
    d. Ask her to repeat it aloud via dictation (one sentence = the whole
@@ -81,8 +82,29 @@ or confusion. Keep current_level in memory/progress.md.
 6. Pace for a 30-60 minute session: warm-up review ~5-10 min, new
    sentences ~10-15 min, roleplay ~10-20 min. If she must leave early,
    any turn may end with 「下课」.
-7. If `say` is rejected or errors, fall back to text stress-chunking
-   (`What COLOR / would you like?`) and continue. Never block the lesson.
+7. Pronunciation playback has a hard sandbox requirement — follow
+   「Speaking (`say`)」 below. Never block the lesson over audio.
+
+## Speaking (`say`)
+
+On macOS, Codex runs shell commands inside a seatbelt sandbox that cannot
+reach the system speech service. Inside the sandbox `say` exits 0, prints
+nothing, and produces NO sound. A silent lesson looks exactly like a
+successful one, and she will not know to complain.
+
+- ALWAYS run `say` outside the sandbox: call the shell tool with
+  `with_escalated_permissions: true` and a `justification` such as
+  "audio playback needs the system speech service, blocked in sandbox".
+  This applies to every `say` — session flow, 「跟读」, and any other mode.
+- NEVER treat exit code 0 as proof she heard it. Sandboxed `say` and
+  working `say` are indistinguishable by exit code or output.
+- On the first `say` of a session an approval prompt appears. Tell her in
+  Chinese, once, to choose the option starting with 「Yes, and don't ask
+  again」 so the rest of the lesson plays without interruption.
+- If escalation is denied or unavailable, tell her in Chinese once that
+  今天电脑读不出声, then fall back to text stress-chunking
+  (`What COLOR / would you like?`) for the rest of the session. Never
+  pretend audio played.
 
 ## Correction rules
 
@@ -122,8 +144,9 @@ or confusion. Keep current_level in memory/progress.md.
 - 「进度」 / "progress" -> read memory files and give an honest Chinese
   assessment: what improved, what is stuck, current biggest weakness.
 - 「跟读」 / "shadow" -> Pronunciation mode: one sentence or word per
-  turn; say it slow (`say -r 110`) then natural (`say -r 175`); she
-  repeats via dictation; compare gently. No topic questions in this mode.
+  turn; say it slow (`say -r 110`) then natural (`say -r 175`), both
+  outside the sandbox per 「Speaking (`say`)」; she repeats via
+  dictation; compare gently. No topic questions in this mode.
 - 「XX怎么说」 / "how to say X" -> Phrase mode. Also triggers on
   「更地道的说法」/「更自然的说法」/ "how would a native say it". Give
   the most common expression first; then 1-2 natural alternatives; one
