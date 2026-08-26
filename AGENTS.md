@@ -114,7 +114,9 @@ current_level in memory/progress.md.
      unit it shows she already commands as `known` in the Unit log.
 4. Write sessions/YYYY-MM-DD.md for each processed report date:
    scenario, her notable sentences verbatim, new mistakes, vocab
-   added, one-paragraph Chinese progress note.
+   added, one-paragraph Chinese progress note. If that day's file
+   already exists (a second 复盘 the same day), merge into it instead
+   of overwriting.
 5. Move each processed inbox file into sessions/raw/ (same filename;
    on collision append -2, -3, …). Leave inbox empty.
 6. Generate the next card per card-template.md and overwrite

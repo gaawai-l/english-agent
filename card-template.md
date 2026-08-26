@@ -13,9 +13,12 @@ dir, overwriting the previous card.
 - `{目标句子}` — 3-5 core sentences of current_unit from its
   curriculum file, one per line, `English（中文）`. Skip sentences
   already produced correctly per the latest reports.
-- `{复习埋伏}` — up to 5 due review items (next review <= today) from
-  mistakes.md and vocab.md, one per line, as the target English form.
-  If nothing is due, delete the whole 【偷偷考我这些】 block.
+- `{复习埋伏}` — up to 5 due review items from mistakes.md and
+  vocab.md, one per line, as the target English form. "Due" means next
+  review <= the day this card will be used, i.e. the day AFTER the
+  复盘 run that builds it — so a mistake logged today (next review =
+  tomorrow) appears on the card built tonight. If nothing is due,
+  delete the whole 【偷偷考我这些】 block.
 - `{老毛病}` — up to 3 highest-count rows from habits.md, one per
   line, as `她的版本 → 正确版本`. If habits.md is empty, delete the
   whole 【我最近的老毛病】 block.
