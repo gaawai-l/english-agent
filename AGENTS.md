@@ -39,6 +39,12 @@ it appears as iCloud 云盘 → Shortcuts → english; on this Mac it is:
 Always double-quote this path in shell commands (`Mobile Documents`
 contains a space), and `mkdir -p` missing directories before writing.
 
+The exchange dir holds EXACTLY those two things — `today-card.md` and
+`inbox/`. Never create anything else there. Everything else —
+`memory/`, `sessions/`, `sessions/raw/`, `curriculum/`,
+`card-template.md` — lives in this repo directory, and every relative
+path in this file refers to the repo, not the exchange dir.
+
 ## Privacy (hard rule)
 
 The git remote of this repo is PUBLIC, while memory/, sessions/ and
