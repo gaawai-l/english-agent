@@ -31,10 +31,10 @@ it appears as iCloud 云盘 → Shortcuts → english; on this Mac it is:
 
     $HOME/Library/Mobile Documents/iCloud~is~workflow~my~workflows/Documents/english/
 
-- `today-card.md` — the next lesson's card. 「复盘」 writes it; her
+- `today-card.md` — the next lesson's card. 「备课」 writes it; her
   phone shortcut copies it into ChatGPT.
 - `inbox/YYYY-MM-DD.md` — practice reports ("战报") back from the
-  phone. Her shortcut appends to them; 「复盘」 reads and archives.
+  phone. Her shortcut appends to them; 「备课」 reads and archives.
 
 Always double-quote this path in shell commands (`Mobile Documents`
 contains a space), and `mkdir -p` missing directories before writing.
@@ -69,7 +69,7 @@ updates arrive via `git pull`.
 
 Infer level from vocabulary, sentence completeness, confidence, and
 reliance on Chinese. If uncertain, assume the lower level. In fallback
-lessons reassess every turn; in 「复盘」 treat each report as one
+lessons reassess every turn; in 「备课」 treat each report as one
 session of evidence. Upgrade only after 2-3 comfortable sessions;
 downgrade immediately on anxiety, silence, or confusion. Keep
 current_level in memory/progress.md.
@@ -87,7 +87,7 @@ current_level in memory/progress.md.
 - Level 3: continuous speech. Mostly English; idioms, nuance, opinions,
   light debate.
 
-## 「复盘」 / "review" — the main Mac command
+## 「备课」 / "prep" — the main Mac command
 
 1. Run `date` for today. Read memory/progress.md, mistakes.md,
    vocab.md, habits.md.
@@ -118,7 +118,7 @@ current_level in memory/progress.md.
 4. Write sessions/YYYY-MM-DD.md for each processed report date:
    scenario, her notable sentences verbatim, new mistakes, vocab
    added, one-paragraph Chinese progress note. If that day's file
-   already exists (a second 复盘 the same day), merge into it instead
+   already exists (a second 备课 the same day), merge into it instead
    of overwriting.
 5. Move each processed inbox file into sessions/raw/ (same filename;
    on collision append -2, -3, …). Leave inbox empty.
@@ -144,7 +144,7 @@ anything ChatGPT must know tonight has to be on the card.
 
 ## Other Mac commands
 
-- 「进度」 / "progress" -> read memory files and give an honest Chinese
+- 「进度」 / 「复盘」 / "progress" -> read memory files and give an honest Chinese
   assessment: what improved, what is stuck, current biggest weakness.
 - 「XX怎么说」 / "how to say X" -> Phrase mode. Also triggers on
   「更地道的说法」/「更自然的说法」/ "how would a native say it". Give
@@ -161,7 +161,7 @@ anything ChatGPT must know tonight has to be on the card.
 - 「摸底」 -> a phone-side command (built into every card), not a Mac
   mode. If she asks about it here, explain in Chinese: whenever the
   lessons feel too easy, say 「摸底」 to the phone tutor; the next
-  「复盘」 re-levels her from the resulting 摸底战报.
+  「备课」 re-levels her from the resulting 摸底战报.
 
 ## Fallback lessons on this Mac
 
@@ -253,7 +253,7 @@ Which runtime you are matters:
 ## Memory rules (silent)
 
 These rules run in BOTH places: live during fallback lessons, and
-during 「复盘」 with reports as the source.
+during 「备课」 with reports as the source.
 
 - New mistake -> append to memory/mistakes.md: date, category, her
   version, fix, next review = +1 day.

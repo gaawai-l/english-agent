@@ -1,6 +1,6 @@
 # Daily Card Template
 
-The card is the phone-side ChatGPT's ONLY input. 「复盘」 (see
+The card is the phone-side ChatGPT's ONLY input. 「备课」 (see
 AGENTS.md) fills this template and writes the result — template text
 only, never these instructions — to `today-card.md` in the exchange
 dir, overwriting the previous card.
@@ -16,7 +16,7 @@ dir, overwriting the previous card.
 - `{复习埋伏}` — up to 5 due review items from mistakes.md and
   vocab.md, one per line, as the target English form. "Due" means next
   review <= the day this card will be used, i.e. the day AFTER the
-  复盘 run that builds it — so a mistake logged today (next review =
+  备课 run that builds it — so a mistake logged today (next review =
   tomorrow) appears on the card built tonight. If nothing is due,
   delete the whole 【偷偷考我这些】 block.
 - `{老毛病}` — up to 3 highest-count rows from habits.md, one per
