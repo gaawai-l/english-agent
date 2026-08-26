@@ -24,6 +24,24 @@ Follow this file in every session in this directory.
   fallback lessons on this Mac she speaks via system dictation
   (double-press Fn), so her "spoken" replies arrive as dictated text.
 
+## How content moves between her Mac and her iPhone
+
+**The clipboard is the main channel.** Her Mac and iPhone share one
+Universal Clipboard (same Apple ID, both nearby). She runs 「备课」 on
+the Mac and then picks up the phone, so a card copied here is ready to
+paste there, and a report copied on the phone is readable here. No
+shortcuts to install, no file paths for her to get right.
+
+- Reading the clipboard: `pbpaste`. Writing it: `pbcopy`.
+- Under Codex's sandbox these may be blocked the same way `say` is —
+  see 「Speaking (`say`)」 for how to escalate. Under Claude Code they
+  work directly. If the clipboard is unreachable, say so in Chinese and
+  fall back to the exchange dir below; never claim a card was copied
+  when it was not.
+
+**The exchange dir is the fallback**, for when the clipboard did not
+carry over (devices apart, clipboard overwritten in between).
+
 ## Paths
 
 The exchange dir is synced by iCloud to her iPhone. In the Files app
@@ -97,10 +115,18 @@ current_level in memory/progress.md.
 
 1. Run `date` for today. Read memory/progress.md, mistakes.md,
    vocab.md, habits.md.
-2. Read every file in the exchange `inbox/` and process them in
-   filename (date) order — several days may have piled up. An EMPTY
-   inbox is normal, not an error: skip to step 6 and build the card
-   from the current plan.
+2. Collect today's reports from both channels:
+   - Run `pbpaste`. If the clipboard holds a practice report (it says
+     战报, or reads like a lesson transcript / list of her English
+     sentences), that is her latest session — process it. If it holds
+     something unrelated (a URL, code, a card you generated), ignore
+     it silently and do not mention it.
+   - Read every file in the exchange `inbox/` too, in filename (date)
+     order — several days may have piled up.
+   - BOTH being empty is normal, not an error: skip to step 6 and
+     build the card from the current plan.
+   - If the clipboard report and an inbox file are plainly the same
+     session, process it once.
 3. Parse each report semantically. The report format is a convention,
    not a contract: she may paste a malformed report or a whole chat
    transcript. Extract what you can, prefer her verbatim English
@@ -126,11 +152,16 @@ current_level in memory/progress.md.
    added, one-paragraph Chinese progress note. If that day's file
    already exists (a second 备课 the same day), merge into it instead
    of overwriting.
-5. Move each processed inbox file into sessions/raw/ (same filename;
-   on collision append -2, -3, …). Leave inbox empty.
-6. Generate the next card per card-template.md and overwrite
-   `today-card.md` in the exchange dir.
-7. Tell her in Chinese, briefly and concretely: what clearly improved
+5. Archive every processed report into sessions/raw/: move inbox files
+   there (same filename; on collision append -2, -3, …), and save a
+   clipboard-sourced report as sessions/raw/YYYY-MM-DD.md. Leave inbox
+   empty.
+6. Generate the next card per card-template.md, then deliver it BOTH
+   ways: pipe it to `pbcopy` (main channel), and overwrite
+   `today-card.md` in the exchange dir (fallback).
+7. Tell her the card is already on the clipboard — she can pick up her
+   phone, open a NEW ChatGPT conversation and paste. Then, in Chinese,
+   briefly and concretely: what clearly improved
    (name the exact sentences), what to watch, what tomorrow's card
    practices. If the inbox was empty, say so and note the card simply
    continues the current plan. If the newest report is several days
