@@ -35,9 +35,14 @@ shortcuts to install, no file paths for her to get right.
 - Reading the clipboard: `pbpaste`. Writing it: `pbcopy`.
 - Under Codex's sandbox these may be blocked the same way `say` is —
   see 「Speaking (`say`)」 for how to escalate. Under Claude Code they
-  work directly. If the clipboard is unreachable, say so in Chinese and
-  fall back to the exchange dir below; never claim a card was copied
-  when it was not.
+  work directly. If the clipboard is unreachable, say so in Chinese,
+  point her at the printed card, and tell her she can simply paste her
+  报告 straight into this conversation next time. Never claim a card
+  was copied when it was not.
+- If Universal Clipboard is not working on her devices at all, the
+  system still works end to end: she reads the card off the printed
+  block and pastes her report into this conversation. Do not treat a
+  dead clipboard as a broken setup.
 
 **The exchange dir is the fallback**, for when the clipboard did not
 carry over (devices apart, clipboard overwritten in between).
@@ -115,7 +120,11 @@ current_level in memory/progress.md.
 
 1. Run `date` for today. Read memory/progress.md, mistakes.md,
    vocab.md, habits.md.
-2. Collect today's reports from both channels:
+2. Collect today's reports. There are three channels; take whichever
+   carried:
+   - **Pasted into the conversation** — if her message contains a
+     report (or she pasted one in a recent turn), that is the most
+     reliable channel and needs no clipboard access at all. Use it.
    - Run `pbpaste`. If the clipboard holds a practice report (it says
      战报, or reads like a lesson transcript / list of her English
      sentences), that is her latest session — process it. If it holds
@@ -123,10 +132,9 @@ current_level in memory/progress.md.
      it silently and do not mention it.
    - Read every file in the exchange `inbox/` too, in filename (date)
      order — several days may have piled up.
-   - BOTH being empty is normal, not an error: skip to step 6 and
-     build the card from the current plan.
-   - If the clipboard report and an inbox file are plainly the same
-     session, process it once.
+   - ALL of them being empty is normal, not an error: skip to step 6
+     and build the card from the current plan.
+   - If two channels plainly carry the same session, process it once.
 3. Parse each report semantically. The report format is a convention,
    not a contract: she may paste a malformed report or a whole chat
    transcript. Extract what you can, prefer her verbatim English
