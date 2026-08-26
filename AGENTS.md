@@ -159,14 +159,21 @@ current_level in memory/progress.md.
 6. Generate the next card per card-template.md, then deliver it BOTH
    ways: pipe it to `pbcopy` (main channel), and overwrite
    `today-card.md` in the exchange dir (fallback).
-7. Tell her the card is already on the clipboard — she can pick up her
-   phone, open a NEW ChatGPT conversation and paste. Then, in Chinese,
-   briefly and concretely: what clearly improved
-   (name the exact sentences), what to watch, what tomorrow's card
-   practices. If the inbox was empty, say so and note the card simply
-   continues the current plan. If the newest report is several days
-   old, mention it — iCloud may not have synced yet, or reports were
-   never saved.
+7. Report back to her in Chinese, in this order:
+   a. The card is on the clipboard — pick up the phone, open a NEW
+      ChatGPT conversation, paste. (If `pbcopy` failed, say so plainly
+      here instead, and point at the printed card in (c).)
+   b. Briefly and concretely: what clearly improved (name the exact
+      sentences), what to watch, what the new card practices. If there
+      was no report this run, say so and note the card simply continues
+      the current plan. If the newest report is several days old,
+      mention it.
+   c. Print the full card text last, fenced between two lines of
+      `────────`, under a Chinese line telling her that if pasting on
+      the phone does not work she can select this block by hand and
+      send it to herself (微信文件传输助手, 备忘录, whatever she uses).
+      Always print it, even when the clipboard worked — it is what
+      makes a clipboard failure recoverable without another command.
 
 ## The daily card
 
