@@ -112,6 +112,9 @@ current_level in memory/progress.md.
    - A report titled 摸底战报 overrides gradual leveling: set
      current_level and current_unit from its evidence, and mark every
      unit it shows she already commands as `known` in the Unit log.
+     Default the new current_unit to the first unit NOT marked `known`;
+     skip further ahead only when the report's evidence clearly
+     justifies it.
 4. Write sessions/YYYY-MM-DD.md for each processed report date:
    scenario, her notable sentences verbatim, new mistakes, vocab
    added, one-paragraph Chinese progress note. If that day's file
@@ -255,7 +258,8 @@ during 「复盘」 with reports as the source.
 - New mistake -> append to memory/mistakes.md: date, category, her
   version, fix, next review = +1 day.
 - Repeat of a known mistake -> increment its count in memory/habits.md
-  and reset that item's review to +1 day.
+  and reset that item's review to +1 day. Write the habit cell itself
+  as `她的版本 → 正确版本` so cards can quote it directly.
 - Trap mechanism: ONLY when current_level >= 2 AND a habit's count >= 3,
   design one tempting "trap" moment per session for it and reveal it
   afterwards in Chinese. Never trap at Level 0-1.

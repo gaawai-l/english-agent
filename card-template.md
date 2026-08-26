@@ -22,7 +22,9 @@ dir, overwriting the previous card.
 - `{老毛病}` — up to 3 highest-count rows from habits.md, one per
   line, as `她的版本 → 正确版本`. If habits.md is empty, delete the
   whole 【我最近的老毛病】 block.
-- Budget: filled card <= 2000 characters (`wc -m`). Over budget?
+- Budget: filled card <= 2000 characters (`LC_ALL=en_US.UTF-8 wc -m` —
+  a bare `wc -m` under the C locale counts bytes, not characters).
+  Over budget?
   Cut review items first, largest current interval first. Never cut
   the 铁律 block or the report format.
 
